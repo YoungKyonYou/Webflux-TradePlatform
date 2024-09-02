@@ -7,6 +7,7 @@ import com.youyk.aggregatorservice.exception.ApplicationExceptions;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ProblemDetail;
+import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
 import reactor.core.publisher.Mono;
@@ -14,9 +15,11 @@ import reactor.core.publisher.Mono;
 import java.util.Objects;
 
 @Slf4j
-@RequiredArgsConstructor
 public class CustomerServiceClient {
     private final WebClient client;
+    public CustomerServiceClient(WebClient client) {
+        this.client = client;
+    }
 
     public Mono<CustomerInformation> getCustomerInformation(Integer customerId){
         return this.client.get()

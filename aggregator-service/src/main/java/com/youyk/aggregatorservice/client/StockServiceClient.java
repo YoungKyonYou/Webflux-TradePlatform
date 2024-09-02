@@ -5,6 +5,7 @@ import com.youyk.aggregatorservice.dto.PriceUpdate;
 import com.youyk.aggregatorservice.dto.StockPriceResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import lombok.extern.slf4j.Slf4j;
@@ -14,10 +15,14 @@ import reactor.util.retry.Retry;
 import java.time.Duration;
 import java.util.Objects;
 
-@RequiredArgsConstructor
 @Slf4j
 public class StockServiceClient {
     private final WebClient client;
+
+    public StockServiceClient(WebClient client) {
+        this.client = client;
+    }
+
     private Flux<PriceUpdate> flux;
 
     //stock service client - stock-service 프로젝트에서 가져옴
