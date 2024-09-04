@@ -29,7 +29,11 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'io.projectreactor:reactor-test'
+    testImplementation 'org.projectlombok:lombok'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    // https://mvnrepository.com/artifact/org.mock-server/mockserver-spring-test-listener
+    implementation group: 'org.mock-server', name: 'mockserver-spring-test-listener', version: '5.14.0'
+
 }
 
 tasks.named('test') {

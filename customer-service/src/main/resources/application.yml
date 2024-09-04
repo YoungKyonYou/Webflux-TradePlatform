@@ -7,6 +7,13 @@ spring:
 server:
   port: 6060
 
+customer:
+  service:
+    url:http://localhost:6060
+stock:
+  service:
+    url:http://localhost:7070
+
 #logging:
 #  level:
 #    io:
